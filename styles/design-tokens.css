@@ -1,0 +1,119 @@
+:root {
+  /* Brand Colors from your documentation */
+  --color-primary: #667eea;
+  --color-secondary: #764ba2;
+  --color-accent: #06b6d4;
+  --color-gold: #ffd89b;
+  --color-navy: #19547b;
+
+  /* Glassmorphism Variables */
+  --glass-bg-light: rgba(255, 255, 255, 0.1);
+  --glass-bg-dark: rgba(255, 255, 255, 0.05);
+  --glass-border-light: rgba(255, 255, 255, 0.2);
+  --glass-border-dark: rgba(255, 255, 255, 0.1);
+  --glass-blur: blur(20px);
+
+  /* Animation Timings */
+  --transition-fast: 0.2s ease;
+  --transition-normal: 0.3s ease;
+  --transition-slow: 0.5s ease;
+
+  /* Typography */
+  --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --line-height-base: 1.6;
+
+  /* Icon Variables */
+  --icon-primary: #667eea;
+  --icon-secondary: #764ba2;
+  --icon-accent: #06b6d4;
+  --icon-size-sm: 0.875rem;
+  --icon-size-md: 1.125rem;
+  --icon-size-lg: 1.5rem;
+  --icon-size-xl: 2rem;
+}
+
+/* CSS Reset from your architecture */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-primary);
+  line-height: var(--line-height-base);
+  color: #1a1a1a;
+}
+
+/* Font Awesome Pro Enhancements */
+.feature-icon {
+  font-size: 3rem;
+  --fa-primary-color: var(--icon-primary);
+  --fa-secondary-color: var(--icon-secondary);
+  --fa-secondary-opacity: 0.4;
+  filter: drop-shadow(0 4px 12px rgba(102, 126, 234, 0.3));
+  transition: all 0.3s ease;
+}
+
+.feature-card:hover .feature-icon {
+  transform: scale(1.1) rotateY(15deg);
+  --fa-secondary-opacity: 0.6;
+}
+
+/* Navigation Icons */
+.nav-link i {
+  margin-right: 0.5rem;
+  transition: all 0.2s ease;
+  --fa-primary-color: #4a5568;
+}
+
+.nav-link:hover i {
+  --fa-primary-color: var(--icon-primary);
+  transform: translateY(-1px);
+}
+
+/* Badge Icon Animation */
+.badge-icon {
+  margin-right: 0.5rem;
+  --fa-primary-color: rgba(255, 255, 255, 0.9);
+  --fa-secondary-color: rgba(255, 212, 155, 0.8);
+  animation: sparkle 2s infinite;
+}
+
+@keyframes sparkle {
+  0%, 100% { --fa-secondary-opacity: 0.3; }
+  50% { --fa-secondary-opacity: 0.8; }
+}
+
+/* Hero Badge */
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 0.5rem 1rem;
+  border-radius: 2rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: white;
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 1rem;
+}
+
+.hero-badge .badge-glow {
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  animation: glow 2s infinite;
+}
+
+@keyframes glow {
+  0% { left: -100%; }
+  50% { left: 100%; }
+  100% { left: 100%; }
+}

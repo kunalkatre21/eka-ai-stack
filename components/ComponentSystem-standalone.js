@@ -341,6 +341,8 @@
       variant: 'default',
       icon: '',
       titleIcon: '',
+      badge: '',
+      theme: 'light',
       ...config
     };
 
@@ -354,9 +356,23 @@
         featured: 'bg-gradient-to-br from-blue-50 to-purple-50 shadow-lg hover:shadow-xl border-2 border-blue-200'
       };
 
+      const themeClasses = {
+        light: 'text-gray-900',
+        dark: 'text-white'
+      };
+
       this.container.innerHTML = `
-        <div class="card group relative overflow-hidden rounded-xl transition-all duration-300 transform hover:-translate-y-1 ${variantClasses[this.config.variant]}">
+        <div class="card group relative overflow-hidden rounded-xl transition-all duration-300 transform hover:-translate-y-1 ${variantClasses[this.config.variant]} ${themeClasses[this.config.theme]}">
           <div class="p-6">
+            <!-- Badge (if provided) -->
+            ${this.config.badge ? `
+              <div class="mb-4">
+                <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800">
+                  ${this.config.badge}
+                </span>
+              </div>
+            ` : ''}
+
             <!-- Icon (if provided) -->
             ${this.config.icon ? `
               <div class="mb-4">
@@ -364,21 +380,29 @@
               </div>
             ` : ''}
 
-            <h3 class="text-xl font-bold text-gray-900 mb-3 leading-tight">
+            <h3 class="text-xl font-bold mb-3 leading-tight">
               ${this.config.titleIcon ? `<i class="${this.config.titleIcon.replace('far', 'fal')} mr-2"></i>` : ''}
               ${this.config.title}
             </h3>
 
-            <p class="text-gray-600 mb-4 leading-relaxed">
+            <p class="text-gray-600 mb-4 leading-relaxed ${this.config.theme === 'dark' ? 'text-gray-300' : ''}">
               ${this.config.content}
             </p>
 
-            <a href="${this.config.link}" class="inline-flex items-center text-blue-600 font-semibold hover:text-blue-800 transition-colors group">
-              Learn More
-              <svg class="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-              </svg>
-            </a>
+            <!-- Actions (if provided) -->
+            ${this.config.actions ? `
+              <div class="flex gap-2">
+                ${this.config.actions.primary ? `<button class="btn-primary text-sm px-3 py-1">${this.config.actions.primary}</button>` : ''}
+                ${this.config.actions.secondary ? `<button class="btn-secondary text-sm px-3 py-1">${this.config.actions.secondary}</button>` : ''}
+              </div>
+            ` : `
+              <a href="${this.config.link}" class="inline-flex items-center text-blue-600 font-semibold hover:text-blue-800 transition-colors group">
+                Learn More
+                <svg class="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                </svg>
+              </a>
+            `}
           </div>
 
           <!-- Click overlay -->
@@ -405,6 +429,76 @@
     }
   }
 
+  // Glass Card Component
+  class GlassCard {
+    constructor(container, config = {}) {
+      this.container = container;
+      this.config = {
+        title: 'Glass Card Title',
+        content: 'This is a glassmorphism card with beautiful effects.',
+        badge: '',
+        theme: 'light',
+        actions: null,
+        ...config
+      };
+
+      this.render();
+      this.attachEvents();
+    }
+
+    render() {
+      const themeClasses = this.config.theme === 'dark'
+        ? 'text-white border-white/20'
+        : 'text-gray-900 border-white/30';
+
+      this.container.innerHTML = `
+        <div class="glass-card relative overflow-hidden rounded-xl p-6 transition-all duration-300 transform hover:scale-105 hover:rotate-1 ${themeClasses}" style="background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(20px); border: 1px solid rgba(255, 255, 255, 0.2);">
+          <!-- Badge (if provided) -->
+          ${this.config.badge ? `
+            <div class="mb-4">
+              <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-white/20 text-white border border-white/30">
+                ${this.config.badge}
+              </span>
+            </div>
+          ` : ''}
+
+          <h3 class="text-xl font-bold mb-3 leading-tight">
+            ${this.config.title}
+          </h3>
+
+          <p class="mb-4 leading-relaxed opacity-90">
+            ${this.config.content}
+          </p>
+
+          <!-- Actions (if provided) -->
+          ${this.config.actions ? `
+            <div class="flex gap-2">
+              ${this.config.actions.primary ? `<button class="bg-white/20 hover:bg-white/30 text-white text-sm px-3 py-1 rounded-lg transition-colors">${this.config.actions.primary}</button>` : ''}
+              ${this.config.actions.secondary ? `<button class="border border-white/30 text-white hover:bg-white/10 text-sm px-3 py-1 rounded-lg transition-colors">${this.config.actions.secondary}</button>` : ''}
+            </div>
+          ` : ''}
+        </div>
+      `;
+    }
+
+    attachEvents() {
+      // Add hover effects
+      this.container.addEventListener('mouseenter', () => {
+        const card = this.container.querySelector('.glass-card');
+        if (card) {
+          card.style.transform = 'scale(1.05) rotate(1deg)';
+        }
+      });
+
+      this.container.addEventListener('mouseleave', () => {
+        const card = this.container.querySelector('.glass-card');
+        if (card) {
+          card.style.transform = 'scale(1) rotate(0deg)';
+        }
+      });
+    }
+  }
+
   // Create global instance
   const componentSystem = new ComponentSystem();
 
@@ -412,18 +506,21 @@
   componentSystem.registerComponent('navigation', Navigation);
   componentSystem.registerComponent('hero-section', HeroSection);
   componentSystem.registerComponent('card', Card);
+  componentSystem.registerComponent('glass-card', GlassCard);
 
   // Make globally available
   window.ComponentSystem = componentSystem;
   window.Navigation = Navigation;
   window.HeroSection = HeroSection;
   window.Card = Card;
+  window.GlassCard = GlassCard;
 
   // Component Library helper
   window.TailwindComponents = {
     navigation: (config) => `<div data-component="navigation" data-config='${JSON.stringify(config)}'></div>`,
     'hero-section': (config) => `<div data-component="hero-section" data-config='${JSON.stringify(config)}'></div>`,
-    card: (config) => `<div data-component="card" data-config='${JSON.stringify(config)}'></div>`
+    card: (config) => `<div data-component="card" data-config='${JSON.stringify(config)}'></div>`,
+    'glass-card': (config) => `<div data-component="glass-card" data-config='${JSON.stringify(config)}'></div>`
   };
 
   // Global debug helper
