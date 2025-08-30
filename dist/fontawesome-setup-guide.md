@@ -35,18 +35,20 @@ In your Webflow project settings > Custom Code > Head Code, make sure you have:
 
 ```html
 <!-- Font Awesome Pro Configuration -->
-<script src="https://cdn.jsdelivr.net/gh/YOUR_USERNAME/YOUR_REPO@main/dist/fontawesome-config.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/kunalkatre21/eka-ai-stack@main/dist/fontawesome-config.js"></script>
 ```
 
-Replace `YOUR_USERNAME` and `YOUR_REPO` with your GitHub details.
+Your repository is already configured: `kunalkatre21/eka-ai-stack`
 
 ### Step 4: Commit and Deploy
 
 ```bash
 git add dist/fontawesome-config.js
 git commit -m "Configure Font Awesome Pro Kit ID"
-git push origin main
+git push origin master
 ```
+
+**Note**: Your repository is `kunalkatre21/eka-ai-stack` and uses the `master` branch.
 
 ## 🎯 Using Font Awesome Pro Icons
 

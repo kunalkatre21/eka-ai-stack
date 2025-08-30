@@ -20,21 +20,13 @@
     <p>This guide will help you integrate your enterprise component system with Webflow for seamless development and deployment.</p>
 
     <div class="step">
-        <h3>Step 1: Create a GitHub Repository</h3>
-        <p>Create a new public GitHub repository to host your component library:</p>
-        <ol>
-            <li>Go to <a href="https://github.com" target="_blank">GitHub.com</a></li>
-            <li>Click "New repository"</li>
-            <li>Name it: <code>your-project-components</code> (or your preferred name)</li>
-            <li>Make it public</li>
-            <li>Don't initialize with README (we already have one)</li>
-        </ol>
-
-        <p>Then push your code:</p>
+        <h3>Step 1: Your GitHub Repository is Already Set Up! ✅</h3>
+        <p>Your component library is already hosted in your GitHub repository:</p>
         <div class="code-block">
-git remote add origin https://github.com/YOUR_USERNAME/your-project-components.git<br>
-git push -u origin master
+Repository: https://github.com/kunalkatre21/eka-ai-stack<br>
+CDN URLs: https://cdn.jsdelivr.net/gh/kunalkatre21/eka-ai-stack@main/dist/
         </div>
+        <p><strong>Make sure your repository is public</strong> so the CDN can access the files.</p>
     </div>
 
     <div class="step">
@@ -58,17 +50,17 @@ git push -u origin master
 &lt;script src="https://cdn.tailwindcss.com"&gt;&lt;/script&gt;<br>
 <br>
 &lt;!-- Component System Styles --&gt;<br>
-&lt;link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/YOUR_USERNAME/YOUR_REPO@main/dist/webflow-styles.css"&gt;<br>
+&lt;link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/kunalkatre21/eka-ai-stack@main/dist/webflow-styles.css"&gt;<br>
 <br>
 &lt;!-- Font Awesome Pro --&gt;<br>
-&lt;script src="https://cdn.jsdelivr.net/gh/YOUR_USERNAME/YOUR_REPO@main/dist/fontawesome-config.js"&gt;&lt;/script&gt;<br>
+&lt;script src="https://cdn.jsdelivr.net/gh/kunalkatre21/eka-ai-stack@main/dist/fontawesome-config.js"&gt;&lt;/script&gt;<br>
 <br>
 &lt;!-- Component System --&gt;<br>
-&lt;script src="https://cdn.jsdelivr.net/gh/YOUR_USERNAME/YOUR_REPO@main/dist/webflow-components.js"&gt;&lt;/script&gt;
+&lt;script src="https://cdn.jsdelivr.net/gh/kunalkatre21/eka-ai-stack@main/dist/webflow-components.js"&gt;&lt;/script&gt;
         </div>
 
-        <div class="warning">
-            <strong>Important:</strong> Replace <code>YOUR_USERNAME</code> and <code>YOUR_REPO</code> with your actual GitHub username and repository name.
+        <div class="success">
+            <strong>✅ Ready to Use:</strong> The CDN URLs are already configured for your repository (<code>kunalkatre21/eka-ai-stack</code>).
         </div>
     </div>
 
