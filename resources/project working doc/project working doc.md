@@ -828,15 +828,16 @@ document.addEventListener('DOMContentLoaded', function() {
 **Content team uses Webflow CMS, components pull dynamic content**[^6_5]
 
 Components are designed to integrate with Webflow's CMS collections:
-
+{% raw %}
 ```html
 <!-- In Webflow Collection Template -->
 <div data-component="product-card" 
-     data-config='{"title":"{{wf {&quot;path&quot;:&quot;name&quot;} }}", 
+     data-config='{"title":"{{wf {"path&quot;:&quot;name&quot;} }}", 
                    "price":"{{wf {&quot;path&quot;:&quot;price&quot;} }}", 
                    "image":"{{wf {&quot;path&quot;:&quot;main-image&quot;,&quot;type&quot;:&quot;Image&quot;} }}"}'>
 </div>
 ```
+{% endraw %}
 
 
 ## Resources and Tutorials
@@ -923,7 +924,7 @@ document.addEventListener('DOMContentLoaded', initializeComponents);
 ## Advanced CMS Integration
 
 ### **Dynamic Component Configuration**
-
+{% raw %}
 ```html
 <!-- In Webflow CMS Collection Template -->
 <div data-component="{{wf {&quot;path&quot;:&quot;component-type&quot;} }}" 
@@ -932,6 +933,7 @@ document.addEventListener('DOMContentLoaded', initializeComponents);
                    "image":"{{wf {&quot;path&quot;:&quot;featured-image&quot;,&quot;type&quot;:&quot;Image&quot;} }}"}'>
 </div>
 ```
+{% endraw %}
 
 
 ### **Component Properties System**
