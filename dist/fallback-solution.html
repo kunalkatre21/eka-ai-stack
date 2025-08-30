@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Webflow Fallback Solution</title>
+    <style>
+        body { font-family: 'Inter', sans-serif; line-height: 1.6; color: #333; max-width: 800px; margin: 0 auto; padding: 20px; }
+        .solution { background: #f0f9ff; border: 1px solid #0ea5e9; border-radius: 8px; padding: 20px; margin: 20px 0; }
+        .code-block { background: #1f2937; color: #e5e7eb; padding: 15px; border-radius: 6px; font-family: 'SF Mono', monospace; font-size: 14px; margin: 10px 0; overflow-x: auto; }
+        .warning { background: #fef3c7; border: 1px solid #f59e0b; border-radius: 4px; padding: 15px; margin: 15px 0; }
+        .success { background: #d1fae5; border: 1px solid #10b981; border-radius: 4px; padding: 15px; margin: 15px 0; }
+        button { background: #3b82f6; color: white; border: none; padding: 10px 16px; border-radius: 4px; cursor: pointer; font-size: 14px; margin: 5px; }
+        button:hover { background: #2563eb; }
+    </style>
+</head>
+<body>
+    <h1>🔧 Webflow Component System - Fallback Solutions</h1>
+    <p><strong>Problem:</strong> CDN links are failing with 404 errors</p>
+    <p><strong>Solutions:</strong> Choose one of the options below to get your component system working immediately</p>
+
+    <div class="solution">
+        <h2>🚀 Solution 1: Host Files on Your Own Server (Recommended)</h2>
+        <p>Upload the component files to your own server or CDN:</p>
+
+        <h3>Step 1: Download the files</h3>
+        <div class="code-block">
+# Download these files from your local project:
+• dist/webflow-components.js
+• dist/webflow-styles.css
+• dist/fontawesome-config.js
+        </div>
+
+        <h3>Step 2: Upload to your server</h3>
+        <p>Upload the 3 files to your web server or CDN (like Cloudflare, AWS S3, etc.)</p>
+
+        <h3>Step 3: Use your server URLs</h3>
+        <div class="code-block" id="serverCode">
+&lt;!-- Tailwind CSS --&gt;
+&lt;script src="https://cdn.tailwindcss.com"&gt;&lt;/script&gt;
+
+&lt;!-- Component System Styles --&gt;
+&lt;link rel="stylesheet" href="YOUR_SERVER_URL/webflow-styles.css"&gt;
+
+&lt;!-- Font Awesome Pro Configuration --&gt;
+&lt;script src="YOUR_SERVER_URL/fontawesome-config.js"&gt;&lt;/script&gt;
+
+&lt;!-- Component System --&gt;
+&lt;script src="YOUR_SERVER_URL/webflow-components.js"&gt;&lt;/script&gt;
+        </div>
+
+        <button onclick="copyServerCode()">Copy Server Code</button>
+    </div>
+
+    <div class="solution">
+        <h2>📦 Solution 2: Inline the Code (Quick Fix)</h2>
+        <p>Copy the component code directly into your Webflow custom code:</p>
+
+        <h3>Option A: Minimal Setup (Just Components)</h3>
+        <div class="code-block" id="inlineCode">
+&lt;!-- Tailwind CSS --&gt;
+&lt;script src="https://cdn.tailwindcss.com"&gt;&lt;/script&gt;
+
+&lt;!-- Component System Styles --&gt;
+&lt;style&gt;
+/* Copy the contents of dist/webflow-styles.css here */
+&lt;/style&gt;
+
+&lt;!-- Font Awesome Pro Configuration --&gt;
+&lt;script&gt;
+// Copy the contents of dist/fontawesome-config.js here
+&lt;/script&gt;
+
+&lt;!-- Component System --&gt;
+&lt;script&gt;
+// Copy the contents of dist/webflow-components.js here
+&lt;/script&gt;
+        </div>
+
+        <button onclick="copyInlineCode()">Copy Inline Code Template</button>
+    </div>
+
+    <div class="solution">
+        <h2>🌐 Solution 3: Use Alternative CDN</h2>
+        <p>Try using a different CDN service:</p>
+
+        <h3>Option A: UNPKG</h3>
+        <div class="code-block" id="unpkgCode">
+&lt;!-- Tailwind CSS --&gt;
+&lt;script src="https://cdn.tailwindcss.com"&gt;&lt;/script&gt;
+
+&lt;!-- Component System Styles --&gt;
+&lt;link rel="stylesheet" href="https://unpkg.com/browse-kunalkatre21-eka-ai-stack@latest/dist/webflow-styles.css"&gt;
+
+&lt;!-- Font Awesome Pro Configuration --&gt;
+&lt;script src="https://unpkg.com/browse-kunalkatre21-eka-ai-stack@latest/dist/fontawesome-config.js"&gt;&lt;/script&gt;
+
+&lt;!-- Component System --&gt;
+&lt;script src="https://unpkg.com/browse-kunalkatre21-eka-ai-stack@latest/dist/webflow-components.js"&gt;&lt;/script&gt;
+        </div>
+
+        <h3>Option B: Raw GitHub (Less Reliable)</h3>
+        <div class="code-block" id="rawCode">
+&lt;!-- Tailwind CSS --&gt;
+&lt;script src="https://cdn.tailwindcss.com"&gt;&lt;/script&gt;
+
+&lt;!-- Component System Styles --&gt;
+&lt;link rel="stylesheet" href="https://raw.githubusercontent.com/kunalkatre21/eka-ai-stack/main/dist/webflow-styles.css"&gt;
+
+&lt;!-- Font Awesome Pro Configuration --&gt;
+&lt;script src="https://raw.githubusercontent.com/kunalkatre21/eka-ai-stack/main/dist/fontawesome-config.js"&gt;&lt;/script&gt;
+
+&lt;!-- Component System --&gt;
+&lt;script src="https://raw.githubusercontent.com/kunalkatre21/eka-ai-stack/main/dist/webflow-components.js"&gt;&lt;/script&gt;
+        </div>
+
+        <button onclick="copyUnpkgCode()">Copy UNPKG Code</button>
+        <button onclick="copyRawCode()">Copy Raw GitHub Code</button>
+    </div>
+
+    <div class="solution">
+        <h2>🔧 Solution 4: Check Repository Settings</h2>
+        <p>Verify your GitHub repository configuration:</p>
+
+        <h3>Step 1: Make Repository Public</h3>
+        <ol>
+            <li>Go to: <a href="https://github.com/kunalkatre21/eka-ai-stack" target="_blank">https://github.com/kunalkatre21/eka-ai-stack</a></li>
+            <li>Click "Settings" tab</li>
+            <li>Scroll down to "Danger Zone"</li>
+            <li>Click "Change repository visibility"</li>
+            <li>Select "Make public"</li>
+            <li>Confirm the change</li>
+        </ol>
+
+        <h3>Step 2: Wait for CDN Propagation</h3>
+        <p>After making the repository public, wait 5-10 minutes for the CDN to update, then try the original CDN links again.</p>
+    </div>
+
+    <div class="success">
+        <h2>✅ Test Your Solution</h2>
+        <p>After implementing any solution above:</p>
+        <ol>
+            <li>Update your Webflow project custom code</li>
+            <li>Publish your Webflow site</li>
+            <li>Open the published site</li>
+            <li>Open Developer Tools (F12)</li>
+            <li>Check Console for: <code>✅ Component System Debug Mode Enabled</code></li>
+        </ol>
+    </div>
+
+    <div class="warning">
+        <h2>⚠️ Troubleshooting</h2>
+        <p>If you still get errors:</p>
+        <ul>
+            <li><strong>404 Errors:</strong> Repository is private or files don't exist</li>
+            <li><strong>CORS Errors:</strong> Try a different CDN or host on your server</li>
+            <li><strong>Syntax Errors:</strong> Check that you copied the code correctly</li>
+            <li><strong>Loading Order:</strong> Make sure scripts load in the correct order</li>
+        </ul>
+    </div>
+
+    <script>
+        function copyServerCode() {
+            const code = `<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com"></script>
+
+<!-- Component System Styles -->
+<link rel="stylesheet" href="YOUR_SERVER_URL/webflow-styles.css">
+
+<!-- Font Awesome Pro Configuration -->
+<script src="YOUR_SERVER_URL/fontawesome-config.js"></script>
+
+<!-- Component System -->
+<script src="YOUR_SERVER_URL/webflow-components.js"></script>`;
+            copyToClipboard(code);
+        }
+
+        function copyInlineCode() {
+            const code = `<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com"></script>
+
+<!-- Component System Styles -->
+<style>
+/* Copy the contents of dist/webflow-styles.css here */
+</style>
+
+<!-- Font Awesome Pro Configuration -->
+<script>
+// Copy the contents of dist/fontawesome-config.js here
+</script>
+
+<!-- Component System -->
+<script>
+// Copy the contents of dist/webflow-components.js here
+</script>`;
+            copyToClipboard(code);
+        }
+
+        function copyUnpkgCode() {
+            const code = document.getElementById('unpkgCode').textContent;
+            copyToClipboard(code);
+        }
+
+        function copyRawCode() {
+            const code = document.getElementById('rawCode').textContent;
+            copyToClipboard(code);
+        }
+
+        function copyToClipboard(text) {
+            navigator.clipboard.writeText(text).then(() => {
+                alert('✅ Code copied to clipboard!');
+            }).catch(err => {
+                console.error('Failed to copy: ', err);
+                // Fallback
+                const textArea = document.createElement('textarea');
+                textArea.value = text;
+                document.body.appendChild(textArea);
+                textArea.select();
+                document.execCommand('copy');
+                document.body.removeChild(textArea);
+                alert('✅ Code copied to clipboard!');
+            });
+        }
+    </script>
+</body>
+</html>
