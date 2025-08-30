@@ -286,7 +286,7 @@ document.addEventListener('DOMContentLoaded', function() {
 #### 3. Using Components in Webflow
 
 Place HTML embed elements where you want components:
-
+{% raw %}
 ```html
 <!-- Navigation -->
 <div data-component="navigation" data-config='{"variant":"sticky"}'></div>
@@ -297,11 +297,12 @@ Place HTML embed elements where you want components:
     "subtitle": "{{wf {&quot;path&quot;:&quot;hero_subtitle&quot;} }}"
 }'></div>
 ```
+{% endraw %}
 
 ### CMS Integration
 
 Components automatically work with Webflow CMS collections:
-
+{% raw %}
 ```html
 <!-- In Collection Template -->
 <div data-component="card" data-config='{
@@ -310,6 +311,8 @@ Components automatically work with Webflow CMS collections:
     "image": "{{wf {&quot;path&quot;:&quot;featured_image&quot;,&quot;type&quot;:&quot;Image&quot;} }}"
 }'></div>
 ```
+{% endraw %}
+
 
 ## Advanced Features
 
