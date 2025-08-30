@@ -292,7 +292,7 @@ document.querySelectorAll('.fade-in, .slide-in-left, .slide-in-right').forEach(e
 ### **6. CMS Integration for Dynamic Content**
 
 **For content team using Webflow CMS:**
-
+{% raw %}
 ```html
 <!-- In Collection Template -->
 <div data-component="glass-card" 
@@ -302,6 +302,7 @@ document.querySelectorAll('.fade-in, .slide-in-left, .slide-in-right').forEach(e
                    "theme":"{{wf {&quot;path&quot;:&quot;theme&quot;} }}"}'>
 </div>
 ```
+{% endraw %}
 
 
 ### **7. Development Workflow**
