@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Webflow Debug Tool</title>
+    <style>
+        body { font-family: 'Inter', sans-serif; line-height: 1.6; color: #333; max-width: 800px; margin: 0 auto; padding: 20px; }
+        .test-section { margin: 20px 0; padding: 15px; border: 2px solid #e5e7eb; border-radius: 8px; }
+        .test-result { padding: 8px 12px; border-radius: 4px; margin: 5px 0; font-size: 14px; }
+        .success { background: #d1fae5; color: #065f46; border: 1px solid #10b981; }
+        .error { background: #fee2e2; color: #991b1b; border: 1px solid #ef4444; }
+        .warning { background: #fef3c7; color: #92400e; border: 1px solid #f59e0b; }
+        .code-block { background: #1f2937; color: #e5e7eb; padding: 12px; border-radius: 6px; font-family: 'SF Mono', monospace; font-size: 13px; margin: 10px 0; overflow-x: auto; }
+        button { background: #3b82f6; color: white; border: none; padding: 10px 16px; border-radius: 4px; cursor: pointer; font-size: 14px; margin: 5px; }
+        button:hover { background: #2563eb; }
+        .debug-output { background: #1a1a1a; color: #00ff00; padding: 15px; border-radius: 6px; font-family: 'SF Mono', monospace; font-size: 13px; margin: 15px 0; max-height: 300px; overflow-y: auto; }
+    </style>
+</head>
+<body>
+    <h1>🔧 Webflow Component System Debug Tool</h1>
+    <p>This tool helps you debug issues with the component system in Webflow.</p>
+
+    <div class="test-section">
+        <h2>🧪 Script Loading Tests</h2>
+        <button onclick="testCDNLinks()">Test CDN Links</button>
+        <button onclick="testScriptLoading()">Test Script Loading</button>
+        <button onclick="testComponentSystem()">Test Component System</button>
+        <button onclick="clearDebug()">Clear Debug Output</button>
+
+        <div id="testResults"></div>
+    </div>
+
+    <div class="test-section">
+        <h2>📋 CDN Link Tests</h2>
+        <p>Click to test each CDN link individually:</p>
+
+        <div class="code-block">
+Test these URLs in your browser:<br>
+• <a href="https://cdn.jsdelivr.net/gh/kunalkatre21/eka-ai-stack@main/dist/webflow-styles.css" target="_blank">CSS File</a><br>
+• <a href="https://cdn.jsdelivr.net/gh/kunalkatre21/eka-ai-stack@main/dist/fontawesome-config.js" target="_blank">Font Awesome Config</a><br>
+• <a href="https://cdn.jsdelivr.net/gh/kunalkatre21/eka-ai-stack@main/dist/webflow-components.js" target="_blank">Component System</a>
+        </div>
+    </div>
+
+    <div class="test-section">
+        <h2>💻 Debug Console</h2>
+        <div id="debugOutput" class="debug-output">
+Debug output will appear here...
+        </div>
+    </div>
+
+    <div class="test-section">
+        <h2>🚀 Quick Fix Code</h2>
+        <p>Copy this exact code to your Webflow project settings > Custom Code > Head Code:</p>
+
+        <div class="code-block" id="webflowCode">
+&lt;!-- Tailwind CSS --&gt;
+&lt;script src="https://cdn.tailwindcss.com"&gt;&lt;/script&gt;
+
+&lt;!-- Component System Styles --&gt;
+&lt;link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/kunalkatre21/eka-ai-stack@main/dist/webflow-styles.css"&gt;
+
+&lt;!-- Font Awesome Pro Configuration --&gt;
+&lt;script src="https://cdn.jsdelivr.net/gh/kunalkatre21/eka-ai-stack@main/dist/fontawesome-config.js"&gt;&lt;/script&gt;
+
+&lt;!-- Component System --&gt;
+&lt;script src="https://cdn.jsdelivr.net/gh/kunalkatre21/eka-ai-stack@main/dist/webflow-components.js"&gt;&lt;/script&gt;
+
+&lt;!-- Debug Mode (Remove after testing) --&gt;
+&lt;script&gt;
+  // Enable debug mode
+  setTimeout(() =&gt; {
+    if (window.ComponentSystem) {
+      window.ComponentSystem.enableDebug();
+      console.log('✅ Component System Debug Mode Enabled');
+    } else {
+      console.error('❌ Component System failed to load');
+    }
+  }, 2000);
+&lt;/script&gt;
+        </div>
+
+        <button onclick="copyWebflowCode()">Copy Webflow Code</button>
+    </div>
+
+    <div class="test-section">
+        <h2>🔍 Manual Debug Steps</h2>
+        <ol>
+            <li>Open your Webflow project in a new browser tab</li>
+            <li>Open Developer Tools (F12)</li>
+            <li>Go to the Network tab</li>
+            <li>Reload the page</li>
+            <li>Look for failed requests to cdn.jsdelivr.net</li>
+            <li>Check Console tab for JavaScript errors</li>
+        </ol>
+    </div>
+
+    <script>
+        function log(message, type = 'info') {
+            const debugOutput = document.getElementById('debugOutput');
+            const timestamp = new Date().toLocaleTimeString();
+            const color = type === 'error' ? '#ff6b6b' :
+                         type === 'success' ? '#51cf66' :
+                         type === 'warning' ? '#ffd43b' : '#74c0fc';
+            debugOutput.innerHTML += `<div style="color: ${color}">[${timestamp}] ${message}</div>`;
+            debugOutput.scrollTop = debugOutput.scrollHeight;
+        }
+
+        function clearDebug() {
+            document.getElementById('debugOutput').innerHTML = 'Debug output cleared...';
+        }
+
+        async function testCDNLinks() {
+            log('🔍 Testing CDN links...', 'info');
+
+            const urls = [
+                'https://cdn.jsdelivr.net/gh/kunalkatre21/eka-ai-stack@main/dist/webflow-styles.css',
+                'https://cdn.jsdelivr.net/gh/kunalkatre21/eka-ai-stack@main/dist/fontawesome-config.js',
+                'https://cdn.jsdelivr.net/gh/kunalkatre21/eka-ai-stack@main/dist/webflow-components.js'
+            ];
+
+            for (const url of urls) {
+                try {
+                    const response = await fetch(url);
+                    if (response.ok) {
+                        log(`✅ ${url.split('/').pop()} - OK (${response.status})`, 'success');
+                    } else {
+                        log(`❌ ${url.split('/').pop()} - Failed (${response.status})`, 'error');
+                    }
+                } catch (error) {
+                    log(`❌ ${url.split('/').pop()} - Network Error`, 'error');
+                }
+            }
+        }
+
+        function testScriptLoading() {
+            log('🔧 Testing script loading...', 'info');
+
+            // Test if scripts are loaded
+            const scripts = [
+                { name: 'Tailwind', test: () => typeof window.tailwind !== 'undefined' },
+                { name: 'Font Awesome', test: () => typeof window.FontAwesome !== 'undefined' },
+                { name: 'Component System', test: () => typeof window.ComponentSystem !== 'undefined' }
+            ];
+
+            scripts.forEach(script => {
+                setTimeout(() => {
+                    try {
+                        if (script.test()) {
+                            log(`✅ ${script.name} loaded successfully`, 'success');
+                        } else {
+                            log(`❌ ${script.name} not loaded`, 'error');
+                        }
+                    } catch (error) {
+                        log(`❌ Error testing ${script.name}: ${error.message}`, 'error');
+                    }
+                }, 1000);
+            });
+        }
+
+        function testComponentSystem() {
+            log('🎯 Testing component system...', 'info');
+
+            setTimeout(() => {
+                if (window.ComponentSystem) {
+                    log('✅ Component System object found', 'success');
+
+                    try {
+                        const debugInfo = window.ComponentSystem.getDebugInfo();
+                        log(`📊 Registered components: ${debugInfo.registeredComponents.length}`, 'info');
+                        log(`🔧 Components initialized: ${debugInfo.initialized ? 'Yes' : 'No'}`, 'info');
+                    } catch (error) {
+                        log(`❌ Error getting debug info: ${error.message}`, 'error');
+                    }
+                } else {
+                    log('❌ Component System not found', 'error');
+                }
+            }, 1500);
+        }
+
+        function copyWebflowCode() {
+            const code = document.getElementById('webflowCode').textContent;
+            navigator.clipboard.writeText(code).then(() => {
+                alert('✅ Webflow code copied to clipboard!');
+            }).catch(err => {
+                console.error('Failed to copy: ', err);
+                // Fallback
+                const textArea = document.createElement('textarea');
+                textArea.value = code;
+                document.body.appendChild(textArea);
+                textArea.select();
+                document.execCommand('copy');
+                document.body.removeChild(textArea);
+                alert('✅ Webflow code copied to clipboard!');
+            });
+        }
+
+        // Auto-run basic tests
+        setTimeout(() => {
+            log('🚀 Debug tool loaded. Click buttons above to test your setup.', 'info');
+        }, 500);
+    </script>
+</body>
+</html>
