@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Webflow Component Implementation Demo</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Component System Styles -->
+    <link rel="stylesheet" href="./webflow-styles.css">
+
+    <!-- Font Awesome Pro Configuration -->
+    <script src="./fontawesome-config.js"></script>
+
+    <!-- Component System -->
+    <script src="./webflow-components.js"></script>
+
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .demo-section { margin: 40px 0; padding: 20px; border: 1px solid #e5e7eb; border-radius: 8px; }
+        .code-preview { background: #1f2937; color: #e5e7eb; padding: 15px; border-radius: 6px; font-family: 'SF Mono', monospace; font-size: 14px; margin: 10px 0; overflow-x: auto; }
+        .component-preview { background: #f9fafb; padding: 20px; border-radius: 8px; margin: 15px 0; }
+        .implementation-note { background: #dbeafe; border-left: 4px solid #3b82f6; padding: 15px; margin: 15px 0; }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <div class="max-w-6xl mx-auto px-4 py-8">
+        <header class="text-center mb-12">
+            <h1 class="text-4xl font-bold text-gray-900 mb-4">
+                🚀 Webflow Component Implementation Demo
+            </h1>
+            <p class="text-xl text-gray-600 mb-8">
+                See your enterprise component system in action with real Webflow integration examples
+            </p>
+            <div class="bg-blue-50 border-l-4 border-blue-400 p-4 text-left">
+                <p class="text-blue-700">
+                    <strong>How to use:</strong> Copy the HTML embed code from each section and paste it into HTML Embed elements in your Webflow project.
+                </p>
+            </div>
+        </header>
+
+        <section class="demo-section">
+            <h2 class="text-2xl font-bold text-gray-900 mb-4">📱 Navigation Component</h2>
+            <p class="text-gray-600 mb-6">Responsive navigation with Font Awesome Pro icons, mobile menu, and sticky positioning.</p>
+
+            <div class="implementation-note">
+                <strong>Webflow Implementation:</strong> Add an HTML Embed element at the top of your page and paste this code:
+            </div>
+
+            <div class="code-preview" id="nav-code">&lt;div data-component="navigation" data-config='{
+  "variant": "sticky",
+  "items": [
+    {"label": "Home", "href": "#home", "icon": "fad fa-home"},
+    {"label": "About", "href": "#about", "icon": "fad fa-user"},
+    {"label": "Services", "href": "#services", "icon": "fad fa-cog"},
+    {"label": "Portfolio", "href": "#portfolio", "icon": "fad fa-briefcase"},
+    {"label": "Blog", "href": "#blog", "icon": "fad fa-blog"},
+    {"label": "Contact", "href": "#contact", "icon": "fad fa-envelope"}
+  ],
+  "logoIcon": "fad fa-hexagon-vertical-nft",
+  "showCTA": true
+}'&gt;&lt;/div&gt;</div>
+
+            <div class="component-preview">
+                <div data-component="navigation" data-config='{
+  "variant": "default",
+  "items": [
+    {"label": "Home", "href": "#home", "icon": "fad fa-home"},
+    {"label": "About", "href": "#about", "icon": "fad fa-user"},
+    {"label": "Services", "href": "#services", "icon": "fad fa-cog"},
+    {"label": "Contact", "href": "#contact", "icon": "fad fa-envelope"}
+  ],
+  "logoIcon": "fad fa-hexagon-vertical-nft",
+  "showCTA": true
+}'></div>
+            </div>
+        </section>
+
+        <section class="demo-section">
+            <h2 class="text-2xl font-bold text-gray-900 mb-4">🎯 Hero Section Component</h2>
+            <p class="text-gray-600 mb-6">Eye-catching hero section with gradient background, animated badge, and call-to-action buttons.</p>
+
+            <div class="implementation-note">
+                <strong>Webflow Implementation:</strong> Place this in an HTML Embed element where you want your hero section:
+            </div>
+
+            <div class="code-preview" id="hero-code">&lt;div data-component="hero-section" data-config='{
+  "title": "Transform Your Digital Presence",
+  "subtitle": "Build stunning, high-converting websites with our enterprise component system and Font Awesome Pro icons",
+  "badge": "✨ New Features Available",
+  "badgeIcon": "fad fa-sparkles",
+  "ctaText": "Get Started Today",
+  "ctaLink": "#contact",
+  "backgroundIcon": "fad fa-hexagon-vertical-nft"
+}'&gt;&lt;/div&gt;</div>
+
+            <div class="component-preview">
+                <div data-component="hero-section" data-config='{
+  "title": "Welcome to Our Platform",
+  "subtitle": "Experience the power of modern web development with our component system",
+  "badge": "🚀 Now in Beta",
+  "badgeIcon": "fad fa-sparkles",
+  "ctaText": "Start Building",
+  "ctaLink": "#signup",
+  "backgroundIcon": "fad fa-hexagon-vertical-nft"
+}'></div>
+            </div>
+        </section>
+
+        <section class="demo-section">
+            <h2 class="text-2xl font-bold text-gray-900 mb-4">💎 Card Components</h2>
+            <p class="text-gray-600 mb-6">Flexible card components with hover effects, badges, and Font Awesome Pro icons.</p>
+
+            <h3 class="text-lg font-semibold text-gray-800 mb-4">Standard Card:</h3>
+            <div class="code-preview" id="card-code">&lt;div data-component="card" data-config='{
+  "title": "Lightning Fast Performance",
+  "content": "Experience blazing-fast loading times with our optimized component system. Built for enterprise-scale applications with performance in mind.",
+  "icon": "fad fa-bolt",
+  "titleIcon": "fal fa-star",
+  "variant": "featured",
+  "badge": "Popular",
+  "link": "#performance"
+}'&gt;&lt;/div&gt;</div>
+
+            <div class="component-preview">
+                <div data-component="card" data-config='{
+  "title": "Lightning Fast Performance",
+  "content": "Experience blazing-fast loading times with our optimized component system.",
+  "icon": "fad fa-bolt",
+  "variant": "featured",
+  "badge": "Popular"
+}'></div>
+            </div>
+
+            <h3 class="text-lg font-semibold text-gray-800 mb-4 mt-8">Glass Card:</h3>
+            <div class="code-preview" id="glass-code">&lt;div data-component="glass-card" data-config='{
+  "title": "Glassmorphism Design",
+  "content": "Modern glass effect with backdrop blur and subtle transparency for a sophisticated look.",
+  "badge": "Premium",
+  "theme": "dark",
+  "actions": {
+    "primary": "Learn More",
+    "secondary": "View Demo"
+  }
+}'&gt;&lt;/div&gt;</div>
+
+            <div class="component-preview bg-gradient-to-r from-purple-600 to-blue-600 p-8 rounded-lg">
+                <div data-component="glass-card" data-config='{
+  "title": "Glassmorphism Design",
+  "content": "Modern glass effect with backdrop blur and transparency.",
+  "badge": "Premium",
+  "theme": "dark"
+}'></div>
+            </div>
+        </section>
+
+        <section class="demo-section">
+            <h2 class="text-2xl font-bold text-gray-900 mb-4">🎨 Feature Grid Layout</h2>
+            <p class="text-gray-600 mb-6">Create beautiful grid layouts with multiple components using Tailwind CSS classes.</p>
+
+            <div class="code-preview" id="grid-code">&lt;div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"&gt;
+  &lt;div data-component="card" data-config='{
+    "title": "Scalable Architecture",
+    "content": "Build websites that grow with your business needs and handle enterprise traffic.",
+    "icon": "fad fa-expand-arrows",
+    "badge": "Enterprise"
+  }'&gt;&lt;/div&gt;
+
+  &lt;div data-component="card" data-config='{
+    "title": "Component-Based",
+    "content": "Reusable components for consistent design system across all pages.",
+    "icon": "fad fa-puzzle-piece",
+    "badge": "Developer"
+  }'&gt;&lt;/div&gt;
+
+  &lt;div data-component="card" data-config='{
+    "title": "Performance Optimized",
+    "content": "Lightning-fast loading with optimized assets and lazy loading.",
+    "icon": "fad fa-tachometer-fast",
+    "badge": "Performance"
+  }'&gt;&lt;/div&gt;
+&lt;/div&gt;</div>
+
+            <div class="component-preview">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div data-component="card" data-config='{
+  "title": "Scalable Architecture",
+  "content": "Build websites that grow with your business needs.",
+  "icon": "fad fa-expand-arrows",
+  "badge": "Enterprise"
+}'></div>
+
+                    <div data-component="card" data-config='{
+  "title": "Component-Based",
+  "content": "Reusable components for consistent design.",
+  "icon": "fad fa-puzzle-piece",
+  "badge": "Developer"
+}'></div>
+
+                    <div data-component="card" data-config='{
+  "title": "Performance Optimized",
+  "content": "Lightning-fast loading with optimization.",
+  "icon": "fad fa-tachometer-fast",
+  "badge": "Performance"
+}'></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="demo-section">
+            <h2 class="text-2xl font-bold text-gray-900 mb-4">🔗 Webflow CMS Integration</h2>
+            <p class="text-gray-600 mb-6">Connect your components to Webflow CMS for dynamic content management.</p>
+
+            <div class="implementation-note">
+                <strong>CMS Integration:</strong> Use Webflow's field references to connect components to your CMS collections.
+            </div>
+
+            <h3 class="text-lg font-semibold text-gray-800 mb-4">CMS-Driven Hero:</h3>
+            <div class="code-preview" id="cms-hero-code">&lt;div data-component="hero-section" data-config='{
+  "title": "{{wf {&quot;path&quot;:&quot;hero_title&quot;} }}",
+  "subtitle": "{{wf {&quot;path&quot;:&quot;hero_subtitle&quot;} }}",
+  "badge": "{{wf {&quot;path&quot;:&quot;hero_badge&quot;} }}",
+  "badgeIcon": "{{wf {&quot;path&quot;:&quot;hero_badge_icon&quot;} }}",
+  "ctaText": "{{wf {&quot;path&quot;:&quot;hero_cta_text&quot;} }}",
+  "ctaLink": "{{wf {&quot;path&quot;:&quot;hero_cta_link&quot;} }}"
+}'&gt;&lt;/div&gt;</div>
+
+            <h3 class="text-lg font-semibold text-gray-800 mb-4 mt-8">CMS Card Collection:</h3>
+            <div class="code-preview" id="cms-card-code">&lt;div data-component="card" data-config='{
+  "title": "{{wf {&quot;path&quot;:&quot;name&quot;} }}",
+  "content": "{{wf {&quot;path&quot;:&quot;description&quot;} }}",
+  "icon": "{{wf {&quot;path&quot;:&quot;icon&quot;} }}",
+  "badge": "{{wf {&quot;path&quot;:&quot;category&quot;} }}",
+  "variant": "{{wf {&quot;path&quot;:&quot;featured&quot;} }}" === "true" ? "featured" : "default"
+}'&gt;&lt;/div&gt;</div>
+
+            <div class="component-preview bg-gray-100 p-6 rounded-lg">
+                <div data-component="card" data-config='{
+  "title": "Dynamic CMS Content",
+  "content": "This card content comes from your Webflow CMS collection. Update it in the CMS and see changes instantly.",
+  "icon": "fad fa-database",
+  "badge": "CMS-Driven"
+}'></div>
+            </div>
+        </section>
+
+        <section class="demo-section">
+            <h2 class="text-2xl font-bold text-gray-900 mb-4">🎛️ Advanced Component Configurations</h2>
+            <p class="text-gray-600 mb-6">Explore advanced configuration options and customization possibilities.</p>
+
+            <h3 class="text-lg font-semibold text-gray-800 mb-4">Custom Navigation:</h3>
+            <div class="component-preview">
+                <div data-component="navigation" data-config='{
+  "variant": "transparent",
+  "items": [
+    {"label": "Products", "href": "#products", "icon": "fad fa-box-open"},
+    {"label": "Solutions", "href": "#solutions", "icon": "fad fa-lightbulb"},
+    {"label": "Pricing", "href": "#pricing", "icon": "fad fa-tags"},
+    {"label": "Resources", "href": "#resources", "icon": "fad fa-book-open"},
+    {"label": "Company", "href": "#company", "icon": "fad fa-building"}
+  ],
+  "logoIcon": "fad fa-hexagon-vertical-nft",
+  "showCTA": true,
+  "ctaText": "Start Free Trial"
+}'></div>
+            </div>
+
+            <h3 class="text-lg font-semibold text-gray-800 mb-4 mt-8">Interactive Feature Cards:</h3>
+            <div class="component-preview">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div data-component="card" data-config='{
+  "title": "Interactive Elements",
+  "content": "Hover effects, animations, and smooth transitions powered by CSS transforms.",
+  "icon": "fad fa-mouse-pointer",
+  "actions": {"primary": "Try It", "secondary": "Learn More"}
+}'></div>
+
+                    <div data-component="glass-card" data-config='{
+  "title": "Glass Effects",
+  "content": "Beautiful backdrop blur with glassmorphism design patterns.",
+  "badge": "Modern",
+  "actions": {"primary": "Explore", "secondary": "Customize"}
+}'></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="demo-section">
+            <h2 class="text-2xl font-bold text-gray-900 mb-4">🔧 Debug & Development Tools</h2>
+            <p class="text-gray-600 mb-6">Built-in debugging tools to help you develop and troubleshoot your components.</p>
+
+            <div class="code-preview" id="debug-code">&lt;script&gt;
+// Enable debug mode for development
+if (window.ComponentSystem) {
+  window.ComponentSystem.enableDebug();
+  console.log('Component System Debug Mode Enabled');
+}
+
+// Log component information after 2 seconds
+setTimeout(() =&gt; {
+  if (window.debugComponents) {
+    window.debugComponents();
+  }
+}, 2000);
+&lt;/script&gt;</div>
+
+            <div class="implementation-note">
+                <strong>Debug Features:</strong>
+                <ul class="mt-2">
+                    <li>• Component initialization logging</li>
+                    <li>• Performance metrics</li>
+                    <li>• Error tracking and reporting</li>
+                    <li>• Component state inspection</li>
+                </ul>
+            </div>
+
+            <button onclick="enableDebug()" class="bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors">
+                Enable Debug Mode
+            </button>
+        </section>
+
+        <footer class="text-center mt-16 py-8 border-t border-gray-200">
+            <h3 class="text-2xl font-bold text-gray-900 mb-4">🎉 Ready to Deploy!</h3>
+            <p class="text-gray-600 mb-6">
+                Your enterprise component system is production-ready and optimized for Webflow integration.
+            </p>
+
+            <div class="bg-green-50 border-l-4 border-green-400 p-6 text-left">
+                <h4 class="text-green-800 font-semibold mb-2">Next Steps:</h4>
+                <ol class="text-green-700 list-decimal list-inside space-y-1">
+                    <li>Create a GitHub repository for your component library</li>
+                    <li>Push your code to GitHub using the URLs above</li>
+                    <li>Create a new Webflow project</li>
+                    <li>Add the custom code to your Webflow project settings</li>
+                    <li>Configure your Font Awesome Pro Kit ID</li>
+                    <li>Start adding components using HTML Embed elements</li>
+                    <li>Test and deploy your website</li>
+                </ol>
+            </div>
+
+            <div class="mt-8 text-sm text-gray-500">
+                Built with ❤️ using the Enterprise Component System
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        function enableDebug() {
+            if (window.ComponentSystem) {
+                window.ComponentSystem.enableDebug();
+                console.log('🛠️ Debug mode enabled!');
+                alert('Debug mode enabled! Check the browser console for component information.');
+            } else {
+                alert('Component system not loaded yet. Please wait a moment and try again.');
+            }
+        }
+
+        // Auto-enable debug for demo purposes
+        setTimeout(() => {
+            if (window.ComponentSystem) {
+                window.ComponentSystem.enableDebug();
+                console.log('🎯 Demo page loaded with debug mode enabled');
+            }
+        }, 1000);
+    </script>
+</body>
+</html>

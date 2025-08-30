@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Webflow Component System Setup Guide</title>
+    <style>
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; line-height: 1.6; color: #333; max-width: 800px; margin: 0 auto; padding: 20px; }
+        .code-block { background: #f4f4f4; border: 1px solid #ddd; border-radius: 4px; padding: 15px; margin: 10px 0; font-family: 'Courier New', monospace; font-size: 14px; overflow-x: auto; }
+        .step { margin: 30px 0; padding: 20px; border-left: 4px solid #007acc; background: #f8f9fa; }
+        .step h3 { margin-top: 0; color: #007acc; }
+        .warning { background: #fff3cd; border: 1px solid #ffeeba; border-radius: 4px; padding: 15px; margin: 15px 0; }
+        .success { background: #d4edda; border: 1px solid #c3e6cb; border-radius: 4px; padding: 15px; margin: 15px 0; }
+        .component-example { background: #e9ecef; border: 1px solid #ced4da; border-radius: 4px; padding: 15px; margin: 15px 0; }
+    </style>
+</head>
+<body>
+    <h1>🚀 Webflow Component System Setup Guide</h1>
+
+    <p>This guide will help you integrate your enterprise component system with Webflow for seamless development and deployment.</p>
+
+    <div class="step">
+        <h3>Step 1: Create a GitHub Repository</h3>
+        <p>Create a new public GitHub repository to host your component library:</p>
+        <ol>
+            <li>Go to <a href="https://github.com" target="_blank">GitHub.com</a></li>
+            <li>Click "New repository"</li>
+            <li>Name it: <code>your-project-components</code> (or your preferred name)</li>
+            <li>Make it public</li>
+            <li>Don't initialize with README (we already have one)</li>
+        </ol>
+
+        <p>Then push your code:</p>
+        <div class="code-block">
+git remote add origin https://github.com/YOUR_USERNAME/your-project-components.git<br>
+git push -u origin master
+        </div>
+    </div>
+
+    <div class="step">
+        <h3>Step 2: Create Webflow Project</h3>
+        <p>Set up your Webflow project:</p>
+        <ol>
+            <li>Go to <a href="https://webflow.com" target="_blank">Webflow.com</a></li>
+            <li>Click "New Project"</li>
+            <li>Choose a blank project or template</li>
+            <li>Name your project</li>
+        </ol>
+    </div>
+
+    <div class="step">
+        <h3>Step 3: Configure Custom Code in Webflow</h3>
+        <p>In your Webflow project settings, go to "Custom Code" and add the following:</p>
+
+        <h4>Head Code (before &lt;/head&gt;):</h4>
+        <div class="code-block">
+&lt;!-- Tailwind CSS --&gt;<br>
+&lt;script src="https://cdn.tailwindcss.com"&gt;&lt;/script&gt;<br>
+<br>
+&lt;!-- Component System Styles --&gt;<br>
+&lt;link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/YOUR_USERNAME/YOUR_REPO@main/dist/webflow-styles.css"&gt;<br>
+<br>
+&lt;!-- Font Awesome Pro --&gt;<br>
+&lt;script src="https://cdn.jsdelivr.net/gh/YOUR_USERNAME/YOUR_REPO@main/dist/fontawesome-config.js"&gt;&lt;/script&gt;<br>
+<br>
+&lt;!-- Component System --&gt;<br>
+&lt;script src="https://cdn.jsdelivr.net/gh/YOUR_USERNAME/YOUR_REPO@main/dist/webflow-components.js"&gt;&lt;/script&gt;
+        </div>
+
+        <div class="warning">
+            <strong>Important:</strong> Replace <code>YOUR_USERNAME</code> and <code>YOUR_REPO</code> with your actual GitHub username and repository name.
+        </div>
+    </div>
+
+    <div class="step">
+        <h3>Step 4: Configure Font Awesome Pro</h3>
+        <p>To enable Font Awesome Pro icons:</p>
+        <ol>
+            <li>Get your Font Awesome Pro Kit ID from <a href="https://fontawesome.com/kits" target="_blank">fontawesome.com/kits</a></li>
+            <li>Edit the <code>fontawesome-config.js</code> file</li>
+            <li>Replace <code>YOUR_KIT_ID</code> with your actual kit ID</li>
+            <li>Commit and push the changes</li>
+        </ol>
+    </div>
+
+    <div class="step">
+        <h3>Step 5: Add Components to Your Pages</h3>
+        <p>Use HTML Embed elements in Webflow to add components:</p>
+
+        <h4>Navigation Component:</h4>
+        <div class="component-example">
+            <div class="code-block">
+&lt;div data-component="navigation" data-config='{<br>
+  "variant": "sticky",<br>
+  "items": [<br>
+    {"label": "Home", "href": "#home", "icon": "fal fa-home"},<br>
+    {"label": "About", "href": "#about", "icon": "fal fa-user"},<br>
+    {"label": "Services", "href": "#services", "icon": "fal fa-cog"},<br>
+    {"label": "Contact", "href": "#contact", "icon": "fal fa-envelope"}<br>
+  ],<br>
+  "logoIcon": "fad fa-hexagon-vertical-nft",<br>
+  "showCTA": true<br>
+}'&gt;&lt;/div&gt;
+            </div>
+        </div>
+
+        <h4>Hero Section Component:</h4>
+        <div class="component-example">
+            <div class="code-block">
+&lt;div data-component="hero-section" data-config='{<br>
+  "title": "Welcome to Our Platform",<br>
+  "subtitle": "Build amazing websites with our component system",<br>
+  "badge": "New Feature",<br>
+  "badgeIcon": "fad fa-sparkles",<br>
+  "ctaText": "Get Started",<br>
+  "ctaLink": "#contact"<br>
+}'&gt;&lt;/div&gt;
+            </div>
+        </div>
+
+        <h4>Card Component:</h4>
+        <div class="component-example">
+            <div class="code-block">
+&lt;div data-component="card" data-config='{<br>
+  "title": "Amazing Feature",<br>
+  "content": "This feature helps you build better websites faster.",<br>
+  "icon": "fad fa-rocket-launch",<br>
+  "variant": "featured",<br>
+  "badge": "Popular"<br>
+}'&gt;&lt;/div&gt;
+            </div>
+        </div>
+
+        <h4>Glass Card Component:</h4>
+        <div class="component-example">
+            <div class="code-block">
+&lt;div data-component="glass-card" data-config='{<br>
+  "title": "Glass Effect Card",<br>
+  "content": "Beautiful glassmorphism effects with backdrop blur.",<br>
+  "badge": "Premium",<br>
+  "actions": {<br>
+    "primary": "Learn More",<br>
+    "secondary": "Contact Us"<br>
+  }<br>
+}'&gt;&lt;/div&gt;
+            </div>
+        </div>
+    </div>
+
+    <div class="step">
+        <h3>Step 6: Using Webflow CMS Data</h3>
+        <p>Connect components to Webflow CMS collections:</p>
+
+        <h4>Dynamic Hero Section:</h4>
+        <div class="component-example">
+            <div class="code-block">
+&lt;div data-component="hero-section" data-config='{<br>
+  "title": "{{wf {\\"path\\":\\"hero_title\\"} }}",<br>
+  "subtitle": "{{wf {\\"path\\":\\"hero_subtitle\\"} }}",<br>
+  "badge": "{{wf {\\"path\\":\\"hero_badge\\"} }}",<br>
+  "ctaText": "{{wf {\\"path\\":\\"hero_cta_text\\"} }}"<br>
+}'&gt;&lt;/div&gt;
+            </div>
+        </div>
+
+        <h4>CMS-Driven Cards:</h4>
+        <div class="component-example">
+            <div class="code-block">
+&lt;div data-component="card" data-config='{<br>
+  "title": "{{wf {\\"path\\":\\"title\\"} }}",<br>
+  "content": "{{wf {\\"path\\":\\"description\\"} }}",<br>
+  "icon": "{{wf {\\"path\\":\\"icon\\"} }}",<br>
+  "badge": "{{wf {\\"path\\":\\"category\\"} }}"<br>
+}'&gt;&lt;/div&gt;
+            </div>
+        </div>
+    </div>
+
+    <div class="step">
+        <h3>Step 7: Enable Debug Mode</h3>
+        <p>Add this to your page's custom code to enable debugging:</p>
+        <div class="code-block">
+&lt;script&gt;<br>
+// Enable debug mode<br>
+if (window.ComponentSystem) {<br>
+  window.ComponentSystem.enableDebug();<br>
+  console.log('Debug mode enabled');<br>
+}<br>&lt;/script&gt;
+        </div>
+    </div>
+
+    <div class="success">
+        <h3>🎉 You're All Set!</h3>
+        <p>Your component system is now integrated with Webflow. You can:</p>
+        <ul>
+            <li>Design visually in Webflow Designer</li>
+            <li>Add components using HTML Embed elements</li>
+            <li>Connect to Webflow CMS for dynamic content</li>
+            <li>Update components by pushing to GitHub</li>
+            <li>Use Font Awesome Pro icons</li>
+        </ul>
+    </div>
+
+    <div class="step">
+        <h3>Troubleshooting</h3>
+        <ul>
+            <li><strong>Components not loading:</strong> Check that all script URLs are correct and files exist on GitHub</li>
+            <li><strong>Icons not showing:</strong> Verify your Font Awesome Pro Kit ID is configured</li>
+            <li><strong>CMS data not working:</strong> Check Webflow field names match your component config</li>
+            <li><strong>Styling issues:</strong> Ensure Tailwind CSS is loading before your custom styles</li>
+        </ul>
+    </div>
+
+    <div class="step">
+        <h3>Next Steps</h3>
+        <ol>
+            <li>Customize component styles in <code>webflow-styles.css</code></li>
+            <li>Add new components to <code>webflow-components.js</code></li>
+            <li>Set up automated deployment with GitHub Actions</li>
+            <li>Create component documentation for your team</li>
+            <li>Implement analytics tracking</li>
+        </ol>
+    </div>
+
+    <footer style="margin-top: 50px; padding-top: 20px; border-top: 1px solid #ddd; text-align: center; color: #666;">
+        <p>Built with ❤️ using the Enterprise Component System</p>
+    </footer>
+</body>
+</html>

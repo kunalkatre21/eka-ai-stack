@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Webflow HTML Embed Examples</title>
+    <style>
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; line-height: 1.6; color: #333; max-width: 900px; margin: 0 auto; padding: 20px; }
+        .embed-example { background: #f8f9fa; border: 1px solid #e9ecef; border-radius: 8px; padding: 20px; margin: 20px 0; }
+        .embed-code { background: #2d3748; color: #e2e8f0; border-radius: 6px; padding: 15px; font-family: 'SF Mono', 'Monaco', 'Inconsolata', 'Fira Code', monospace; font-size: 14px; overflow-x: auto; margin: 10px 0; }
+        .copy-btn { background: #4299e1; color: white; border: none; padding: 8px 16px; border-radius: 4px; cursor: pointer; font-size: 14px; margin-top: 10px; }
+        .copy-btn:hover { background: #3182ce; }
+        .component-title { color: #2b6cb0; font-weight: 600; margin-bottom: 10px; }
+        .description { color: #4a5568; margin-bottom: 15px; }
+        h2 { color: #1a202c; border-bottom: 2px solid #e2e8f0; padding-bottom: 10px; }
+    </style>
+</head>
+<body>
+    <h1>📋 Webflow HTML Embed Examples</h1>
+    <p>Copy these HTML snippets directly into Webflow HTML Embed elements to add components to your pages.</p>
+
+    <h2>🎯 Core Components</h2>
+
+    <div class="embed-example">
+        <div class="component-title">Navigation Component</div>
+        <div class="description">Responsive navigation with Font Awesome Pro icons and mobile menu</div>
+        <div class="embed-code" id="nav-code">&lt;div data-component="navigation" data-config='{
+  "variant": "sticky",
+  "items": [
+    {"label": "Home", "href": "#home", "icon": "fal fa-home"},
+    {"label": "About", "href": "#about", "icon": "fal fa-user"},
+    {"label": "Services", "href": "#services", "icon": "fal fa-cog"},
+    {"label": "Blog", "href": "#blog", "icon": "fal fa-blog"},
+    {"label": "Contact", "href": "#contact", "icon": "fal fa-envelope"}
+  ],
+  "logoIcon": "fad fa-hexagon-vertical-nft",
+  "showCTA": true
+}'&gt;&lt;/div&gt;</div>
+        <button class="copy-btn" onclick="copyToClipboard('nav-code')">Copy Code</button>
+    </div>
+
+    <div class="embed-example">
+        <div class="component-title">Hero Section Component</div>
+        <div class="description">Eye-catching hero section with gradient background and badge</div>
+        <div class="embed-code" id="hero-code">&lt;div data-component="hero-section" data-config='{
+  "title": "Welcome to Our Platform",
+  "subtitle": "Build amazing websites with our enterprise component system and Font Awesome Pro icons",
+  "badge": "✨ New Feature Available",
+  "badgeIcon": "fad fa-sparkles",
+  "ctaText": "Get Started Today",
+  "ctaLink": "#contact",
+  "backgroundIcon": "fad fa-hexagon-vertical-nft"
+}'&gt;&lt;/div&gt;</div>
+        <button class="copy-btn" onclick="copyToClipboard('hero-code')">Copy Code</button>
+    </div>
+
+    <div class="embed-example">
+        <div class="component-title">Card Component</div>
+        <div class="description">Flexible card component with hover effects and Font Awesome icons</div>
+        <div class="embed-code" id="card-code">&lt;div data-component="card" data-config='{
+  "title": "Lightning Fast Performance",
+  "content": "Experience blazing-fast loading times with our optimized component system. Built for enterprise-scale applications.",
+  "icon": "fad fa-bolt",
+  "titleIcon": "fal fa-star",
+  "variant": "featured",
+  "badge": "Popular",
+  "link": "#features"
+}'&gt;&lt;/div&gt;</div>
+        <button class="copy-btn" onclick="copyToClipboard('card-code')">Copy Code</button>
+    </div>
+
+    <div class="embed-example">
+        <div class="component-title">Glass Card Component</div>
+        <div class="description">Beautiful glassmorphism effect with backdrop blur</div>
+        <div class="embed-code" id="glass-code">&lt;div data-component="glass-card" data-config='{
+  "title": "Glassmorphism Design",
+  "content": "Modern glass effect with backdrop blur and subtle transparency for a sophisticated look.",
+  "badge": "Premium",
+  "theme": "dark",
+  "actions": {
+    "primary": "Learn More",
+    "secondary": "View Demo"
+  }
+}'&gt;&lt;/div&gt;</div>
+        <button class="copy-btn" onclick="copyToClipboard('glass-code')">Copy Code</button>
+    </div>
+
+    <h2>🔗 Webflow CMS Integration</h2>
+
+    <div class="embed-example">
+        <div class="component-title">CMS-Driven Hero Section</div>
+        <div class="description">Connect hero content to Webflow CMS fields</div>
+        <div class="embed-code" id="cms-hero-code">&lt;div data-component="hero-section" data-config='{
+  "title": "{{wf {&quot;path&quot;:&quot;hero_title&quot;} }}",
+  "subtitle": "{{wf {&quot;path&quot;:&quot;hero_subtitle&quot;} }}",
+  "badge": "{{wf {&quot;path&quot;:&quot;hero_badge&quot;} }}",
+  "badgeIcon": "{{wf {&quot;path&quot;:&quot;hero_badge_icon&quot;} }}",
+  "ctaText": "{{wf {&quot;path&quot;:&quot;hero_cta_text&quot;} }}",
+  "ctaLink": "{{wf {&quot;path&quot;:&quot;hero_cta_link&quot;} }}"
+}'&gt;&lt;/div&gt;</div>
+        <button class="copy-btn" onclick="copyToClipboard('cms-hero-code')">Copy Code</button>
+    </div>
+
+    <div class="embed-example">
+        <div class="component-title">CMS Card Collection</div>
+        <div class="description">Dynamic cards from Webflow CMS collections</div>
+        <div class="embed-code" id="cms-card-code">&lt;div data-component="card" data-config='{
+  "title": "{{wf {&quot;path&quot;:&quot;name&quot;} }}",
+  "content": "{{wf {&quot;path&quot;:&quot;description&quot;} }}",
+  "icon": "{{wf {&quot;path&quot;:&quot;icon&quot;} }}",
+  "badge": "{{wf {&quot;path&quot;:&quot;category&quot;} }}",
+  "variant": "{{wf {&quot;path&quot;:&quot;featured&quot;} }}" === "true" ? "featured" : "default"
+}'&gt;&lt;/div&gt;</div>
+        <button class="copy-btn" onclick="copyToClipboard('cms-card-code')">Copy Code</button>
+    </div>
+
+    <h2>🎨 Layout Components</h2>
+
+    <div class="embed-example">
+        <div class="component-title">Feature Grid</div>
+        <div class="description">Grid layout with multiple cards</div>
+        <div class="embed-code" id="grid-code">&lt;div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"&gt;
+  &lt;div data-component="card" data-config='{
+    "title": "Scalable Architecture",
+    "content": "Build websites that grow with your business needs.",
+    "icon": "fad fa-expand-arrows",
+    "badge": "Enterprise"
+  }'&gt;&lt;/div&gt;
+
+  &lt;div data-component="card" data-config='{
+    "title": "Component-Based",
+    "content": "Reusable components for consistent design system.",
+    "icon": "fad fa-puzzle-piece",
+    "badge": "Developer"
+  }'&gt;&lt;/div&gt;
+
+  &lt;div data-component="card" data-config='{
+    "title": "Performance Optimized",
+    "content": "Lightning-fast loading with optimized assets.",
+    "icon": "fad fa-tachometer-fast",
+    "badge": "Performance"
+  }'&gt;&lt;/div&gt;
+&lt;/div&gt;</div>
+        <button class="copy-btn" onclick="copyToClipboard('grid-code')">Copy Code</button>
+    </div>
+
+    <h2>⚡ Advanced Examples</h2>
+
+    <div class="embed-example">
+        <div class="component-title">Navigation with Custom Branding</div>
+        <div class="description">Custom logo and branding elements</div>
+        <div class="embed-code" id="custom-nav-code">&lt;div data-component="navigation" data-config='{
+  "variant": "transparent",
+  "items": [
+    {"label": "Products", "href": "#products", "icon": "fad fa-box-open"},
+    {"label": "Solutions", "href": "#solutions", "icon": "fad fa-lightbulb"},
+    {"label": "Pricing", "href": "#pricing", "icon": "fad fa-tags"},
+    {"label": "Resources", "href": "#resources", "icon": "fad fa-book"},
+    {"label": "Company", "href": "#company", "icon": "fad fa-building"}
+  ],
+  "logoIcon": "fad fa-hexagon-vertical-nft",
+  "logoText": "Your Brand",
+  "showCTA": true,
+  "ctaText": "Start Free Trial"
+}'&gt;&lt;/div&gt;</div>
+        <button class="copy-btn" onclick="copyToClipboard('custom-nav-code')">Copy Code</button>
+    </div>
+
+    <div class="embed-example">
+        <div class="component-title">Hero with Multiple CTAs</div>
+        <div class="description">Hero section with primary and secondary call-to-action buttons</div>
+        <div class="embed-code" id="multi-cta-hero-code">&lt;div data-component="hero-section" data-config='{
+  "title": "Transform Your Digital Presence",
+  "subtitle": "Join thousands of companies using our platform to create stunning, high-converting websites",
+  "badge": "🚀 Now in Beta",
+  "badgeIcon": "fad fa-rocket",
+  "primaryCTA": "Start Building Free",
+  "secondaryCTA": "Watch Demo",
+  "variant": "centered"
+}'&gt;&lt;/div&gt;</div>
+        <button class="copy-btn" onclick="copyToClipboard('multi-cta-hero-code')">Copy Code</button>
+    </div>
+
+    <h2>🔧 Debug & Testing</h2>
+
+    <div class="embed-example">
+        <div class="component-title">Debug Mode Enable</div>
+        <div class="description">Add this to enable debug logging in browser console</div>
+        <div class="embed-code" id="debug-code">&lt;script&gt;
+// Enable debug mode for development
+if (window.ComponentSystem) {
+  window.ComponentSystem.enableDebug();
+  console.log('Component System Debug Mode Enabled');
+}
+
+// Log component information
+setTimeout(() =&gt; {
+  if (window.debugComponents) {
+    window.debugComponents();
+  }
+}, 2000);
+&lt;/script&gt;</div>
+        <button class="copy-btn" onclick="copyToClipboard('debug-code')">Copy Code</button>
+    </div>
+
+    <script>
+        function copyToClipboard(elementId) {
+            const codeElement = document.getElementById(elementId);
+            const code = codeElement.textContent || codeElement.innerText;
+
+            navigator.clipboard.writeText(code).then(() => {
+                const btn = event.target;
+                const originalText = btn.textContent;
+                btn.textContent = 'Copied!';
+                btn.style.background = '#38a169';
+
+                setTimeout(() => {
+                    btn.textContent = originalText;
+                    btn.style.background = '#4299e1';
+                }, 2000);
+            }).catch(err => {
+                console.error('Failed to copy: ', err);
+                // Fallback for older browsers
+                const textArea = document.createElement('textarea');
+                textArea.value = code;
+                document.body.appendChild(textArea);
+                textArea.select();
+                document.execCommand('copy');
+                document.body.removeChild(textArea);
+
+                const btn = event.target;
+                btn.textContent = 'Copied!';
+                btn.style.background = '#38a169';
+                setTimeout(() => {
+                    btn.textContent = 'Copy Code';
+                    btn.style.background = '#4299e1';
+                }, 2000);
+            });
+        }
+    </script>
+
+    <footer style="margin-top: 50px; padding-top: 20px; border-top: 1px solid #e2e8f0; text-align: center; color: #718096;">
+        <p>💡 Tip: Replace the data-config JSON with your actual content and Webflow CMS field references</p>
+        <p>Built with ❤️ using the Enterprise Component System</p>
+    </footer>
+</body>
+</html>
