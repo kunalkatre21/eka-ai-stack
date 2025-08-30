@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Webflow Component Integration Example</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../assets/css/custom.css">
+
+    <!-- Font Awesome Pro Configuration -->
+    <script src="../config.js"></script>
+
+    <!-- Font Awesome Pro Loader -->
+    <script src="../assets/js/fontawesome-loader.js"></script>
+
+    <!-- Webflow Integration -->
+    <script src="../assets/js/webflow-integration.js"></script>
+    <script src="../components/ComponentLibrary.js" type="module"></script>
+</head>
+<body class="font-['Inter'] antialiased">
+    <!-- Designer places HTML Embed elements as placeholders -->
+
+    <!-- Navigation Component -->
+    <div data-component="navigation" data-config='{
+        "variant": "sticky",
+        "items": [
+            {"label": "Home", "href": "#home"},
+            {"label": "About", "href": "#about"},
+            {"label": "Services", "href": "#services"},
+            {"label": "Blog", "href": "#blog"},
+            {"label": "Contact", "href": "#contact"}
+        ],
+        "showCTA": true
+    }'>
+        <!-- Placeholder for designer preview -->
+        <div class="bg-gray-100 p-4 text-center border-2 border-dashed border-gray-300">
+            Navigation Component Will Load Here
+        </div>
+    </div>
+
+    <!-- Hero Section with CMS Integration -->
+    <div data-component="hero-section" data-config='{
+        "title": "{{wf {&quot;path&quot;:&quot;hero_title&quot;} }}",
+        "subtitle": "{{wf {&quot;path&quot;:&quot;hero_subtitle&quot;} }}",
+        "ctaText": "{{wf {&quot;path&quot;:&quot;hero_cta_text&quot;} }}",
+        "ctaLink": "#contact",
+        "variant": "centered"
+    }'>
+        <!-- Placeholder -->
+        <div class="bg-gradient-to-r from-blue-500 to-purple-600 p-20 text-center text-white">
+            <h1 class="text-4xl font-bold">Hero Section</h1>
+            <p class="mt-4">Dynamic content will be loaded from Webflow CMS</p>
+        </div>
+    </div>
+
+    <!-- Features Grid -->
+    <section class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl lg:text-4xl font-bold text-gray-900">
+                    Our Features
+                </h2>
+            </div>
+
+            <!-- CMS Collection Items -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" data-cms-collection="features">
+                <!-- Feature 1 -->
+                <div data-cms-item data-cms-component="card" class="cms-item">
+                    <div data-cms-field="title" data-cms-type="text">Scalable Architecture</div>
+                    <div data-cms-field="description" data-cms-type="text">Build websites that grow with your business</div>
+                    <div data-cms-field="icon" data-cms-type="text">🚀</div>
+                </div>
+
+                <!-- Feature 2 -->
+                <div data-cms-item data-cms-component="card" class="cms-item">
+                    <div data-cms-field="title" data-cms-type="text">Component-Based</div>
+                    <div data-cms-field="description" data-cms-type="text">Reusable components for consistent design</div>
+                    <div data-cms-field="icon" data-cms-type="text">🧩</div>
+                </div>
+
+                <!-- Feature 3 -->
+                <div data-cms-item data-cms-component="card" class="cms-item">
+                    <div data-cms-field="title" data-cms-type="text">Enterprise Ready</div>
+                    <div data-cms-field="description" data-cms-type="text">Built for large-scale applications</div>
+                    <div data-cms-field="icon" data-cms-type="text">🏢</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Posts from CMS -->
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl lg:text-4xl font-bold text-gray-900">
+                    Latest Blog Posts
+                </h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" data-cms-collection="blog-posts">
+                <!-- Blog Post Template -->
+                <div data-cms-item data-cms-component="card" class="cms-item">
+                    <div data-cms-field="featured_image" data-cms-type="image" class="w-full h-48 bg-gray-200 mb-4 rounded-lg"></div>
+                    <div data-cms-field="title" data-cms-type="text" class="text-xl font-bold mb-2">Blog Post Title</div>
+                    <div data-cms-field="excerpt" data-cms-type="text" class="text-gray-600 mb-4">Blog post excerpt from CMS...</div>
+                    <a data-cms-field="permalink" data-cms-type="link" href="#" class="text-blue-600 font-semibold">Read More →</a>
+                </div>
+
+                <!-- Repeat for more posts -->
+                <div data-cms-item data-cms-component="card" class="cms-item">
+                    <div data-cms-field="featured_image" data-cms-type="image" class="w-full h-48 bg-gray-200 mb-4 rounded-lg"></div>
+                    <div data-cms-field="title" data-cms-type="text" class="text-xl font-bold mb-2">Another Blog Post</div>
+                    <div data-cms-field="excerpt" data-cms-type="text" class="text-gray-600 mb-4">Another blog post excerpt...</div>
+                    <a data-cms-field="permalink" data-cms-type="link" href="#" class="text-blue-600 font-semibold">Read More →</a>
+                </div>
+
+                <div data-cms-item data-cms-component="card" class="cms-item">
+                    <div data-cms-field="featured_image" data-cms-type="image" class="w-full h-48 bg-gray-200 mb-4 rounded-lg"></div>
+                    <div data-cms-field="title" data-cms-type="text" class="text-xl font-bold mb-2">Third Blog Post</div>
+                    <div data-cms-field="excerpt" data-cms-type="text" class="text-gray-600 mb-4">Third blog post excerpt...</div>
+                    <a data-cms-field="permalink" data-cms-type="link" href="#" class="text-blue-600 font-semibold">Read More →</a>
+                </div>
+            </div>
+
+            <!-- Load More Button -->
+            <div class="text-center mt-12">
+                <button data-load-more
+                        data-target="[data-cms-collection='blog-posts']"
+                        data-endpoint="/api/blog-posts"
+                        data-page="1"
+                        class="bg-blue-600 text-white px-8 py-4 rounded-lg font-semibold hover:bg-blue-700 transition-colors">
+                    Load More Posts
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Form -->
+    <section class="py-20 bg-gray-50">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl lg:text-4xl font-bold text-gray-900">
+                    Get In Touch
+                </h2>
+                <p class="text-xl text-gray-600 mt-4">
+                    Ready to start your next project? Let's talk.
+                </p>
+            </div>
+
+            <div class="bg-white rounded-xl shadow-lg p-8">
+                <form data-form-name="contact_form" class="space-y-6">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <label for="first_name" class="form-label">First Name</label>
+                            <input type="text" id="first_name" name="first_name" required class="form-input">
+                        </div>
+
+                        <div>
+                            <label for="last_name" class="form-label">Last Name</label>
+                            <input type="text" id="last_name" name="last_name" required class="form-input">
+                        </div>
+                    </div>
+
+                    <div>
+                        <label for="email" class="form-label">Email Address</label>
+                        <input type="email" id="email" name="email" required class="form-input">
+                    </div>
+
+                    <div>
+                        <label for="company" class="form-label">Company (Optional)</label>
+                        <input type="text" id="company" name="company" class="form-input">
+                    </div>
+
+                    <div>
+                        <label for="message" class="form-label">Message</label>
+                        <textarea id="message" name="message" rows="5" required class="form-input"></textarea>
+                    </div>
+
+                    <div class="text-center">
+                        <button type="submit" class="btn-primary">
+                            Send Message
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div class="col-span-2">
+                    <h3 class="text-xl font-bold mb-4">Webflow Integration</h3>
+                    <p class="text-gray-400 mb-4">
+                        Seamlessly integrate custom components with Webflow's visual design tools.
+                    </p>
+                </div>
+
+                <div>
+                    <h4 class="font-semibold mb-4">Components</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#" class="hover:text-white transition-colors">Navigation</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Hero Sections</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Cards</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-semibold mb-4">Resources</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#" class="hover:text-white transition-colors">Documentation</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Webflow Guide</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Support</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2024 Webflow Component Integration. Built with Tailwind Plus.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        // Enable debug mode for development
+        if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
+            if (window.WebflowComponentManager) {
+                window.WebflowComponentManager.enableDebug();
+            }
+        }
+
+        // Simulate CMS data loading (in real Webflow, this would come from the CMS)
+        document.addEventListener('DOMContentLoaded', function() {
+            // Simulate dynamic CMS content
+            setTimeout(() => {
+                console.log('Simulating CMS data load...');
+
+                // Update hero section with simulated CMS data
+                const heroElement = document.querySelector('[data-component="hero-section"]');
+                if (heroElement) {
+                    // In real Webflow, this would be handled by the CMS system
+                    console.log('Hero section would be updated with CMS data');
+                }
+            }, 1000);
+        });
+    </script>
+</body>
+</html>

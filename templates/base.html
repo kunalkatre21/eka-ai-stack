@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Enterprise Website{% endblock %}</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/assets/css/custom.css">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome Pro Configuration -->
+    <script src="/config.js"></script>
+
+    <!-- Font Awesome Pro Loader -->
+    <script src="/assets/js/fontawesome-loader.js"></script>
+
+    <!-- Font Awesome Pro CSS Variables -->
+    <style>
+    :root {
+      --icon-primary: #667eea;
+      --icon-secondary: #764ba2;
+      --icon-accent: #06b6d4;
+      --icon-size-sm: 0.875rem;
+      --icon-size-md: 1.125rem;
+      --icon-size-lg: 1.5rem;
+      --icon-size-xl: 2rem;
+    }
+
+    /* Font Awesome Pro Enhancements */
+    .feature-icon {
+      font-size: 3rem;
+      --fa-primary-color: var(--icon-primary);
+      --fa-secondary-color: var(--icon-secondary);
+      --fa-secondary-opacity: 0.4;
+      filter: drop-shadow(0 4px 12px rgba(102, 126, 234, 0.3));
+      transition: all 0.3s ease;
+    }
+
+    .feature-card:hover .feature-icon {
+      transform: scale(1.1) rotateY(15deg);
+      --fa-secondary-opacity: 0.6;
+    }
+
+    /* Navigation Icons */
+    .nav-link i {
+      margin-right: 0.5rem;
+      transition: all 0.2s ease;
+      --fa-primary-color: #4a5568;
+    }
+
+    .nav-link:hover i {
+      --fa-primary-color: var(--icon-primary);
+      transform: translateY(-1px);
+    }
+
+    /* Glass Card Icons */
+    .glass-card-title i {
+      margin-right: 0.5rem;
+      --fa-primary-color: var(--icon-primary);
+      --fa-secondary-color: var(--icon-secondary);
+    }
+
+    /* Floating Icons with Animation */
+    .float-element i {
+      --fa-primary-color: rgba(255, 255, 255, 0.8);
+      --fa-secondary-color: rgba(255, 255, 255, 0.4);
+      transition: all 0.3s ease;
+    }
+
+    .float-element:hover i {
+      --fa-primary-color: var(--icon-accent);
+      transform: scale(1.2);
+    }
+
+    /* Badge Icon Animation */
+    .badge-icon {
+      margin-right: 0.5rem;
+      --fa-primary-color: rgba(255, 255, 255, 0.9);
+      --fa-secondary-color: rgba(255, 212, 155, 0.8);
+      animation: sparkle 2s infinite;
+    }
+
+    @keyframes sparkle {
+      0%, 100% { --fa-secondary-opacity: 0.3; }
+      50% { --fa-secondary-opacity: 0.8; }
+    }
+    </style>
+
+    <!-- Meta tags -->
+    <meta name="description" content="{% block description %}Build scalable enterprise websites with our component-based system{% endblock %}">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+
+    <!-- Component System -->
+    <script src="/components/ComponentLibrary.js" type="module"></script>
+</head>
+<body class="font-['Inter'] antialiased">
+    <!-- Skip to main content -->
+    <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 bg-blue-600 text-white px-4 py-2 rounded-lg z-50">
+        Skip to main content
+    </a>
+
+    <!-- Header -->
+    <header role="banner">
+        {% block header %}
+        <div data-component="navigation" data-config='{"variant":"default","showCTA":true}'></div>
+        {% endblock %}
+    </header>
+
+    <!-- Main Content -->
+    <main id="main-content" role="main">
+        {% block content %}
+        <!-- Page content goes here -->
+        {% endblock %}
+    </main>
+
+    <!-- Footer -->
+    <footer role="contentinfo">
+        {% block footer %}
+        <div class="bg-gray-900 text-white py-12">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                    <div class="col-span-2">
+                        <h3 class="text-xl font-bold mb-4">Company Name</h3>
+                        <p class="text-gray-400 mb-4">
+                            Building the future of enterprise web development with component-based architecture.
+                        </p>
+                        <div class="flex space-x-4">
+                            <a href="#" class="text-gray-400 hover:text-white transition-colors">Twitter</a>
+                            <a href="#" class="text-gray-400 hover:text-white transition-colors">LinkedIn</a>
+                            <a href="#" class="text-gray-400 hover:text-white transition-colors">GitHub</a>
+                        </div>
+                    </div>
+
+                    <div>
+                        <h4 class="font-semibold mb-4">Product</h4>
+                        <ul class="space-y-2 text-gray-400">
+                            <li><a href="#" class="hover:text-white transition-colors">Components</a></li>
+                            <li><a href="#" class="hover:text-white transition-colors">Templates</a></li>
+                            <li><a href="#" class="hover:text-white transition-colors">Documentation</a></li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="font-semibold mb-4">Support</h4>
+                        <ul class="space-y-2 text-gray-400">
+                            <li><a href="#" class="hover:text-white transition-colors">Help Center</a></li>
+                            <li><a href="#" class="hover:text-white transition-colors">Contact</a></li>
+                            <li><a href="#" class="hover:text-white transition-colors">Status</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
+                    <p>&copy; 2024 Company Name. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+        {% endblock %}
+    </footer>
+
+    <!-- Scripts -->
+    {% block scripts %}
+    <!-- Additional scripts can be added here -->
+    {% endblock %}
+
+    <!-- Analytics -->
+    <script>
+        // Add your analytics code here
+        // Example: Google Analytics, Mixpanel, etc.
+    </script>
+</body>
+</html>

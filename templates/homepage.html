@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enterprise Website - Component-Based Architecture</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../assets/css/custom.css">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome Pro Configuration -->
+    <script src="../config.js"></script>
+
+    <!-- Font Awesome Pro Loader -->
+    <script src="../assets/js/fontawesome-loader.js"></script>
+
+    <!-- Font Awesome Pro CSS Variables -->
+    <style>
+    :root {
+      --icon-primary: #667eea;
+      --icon-secondary: #764ba2;
+      --icon-accent: #06b6d4;
+      --icon-size-sm: 0.875rem;
+      --icon-size-md: 1.125rem;
+      --icon-size-lg: 1.5rem;
+      --icon-size-xl: 2rem;
+    }
+
+    /* Font Awesome Pro Enhancements */
+    .feature-icon {
+      font-size: 3rem;
+      --fa-primary-color: var(--icon-primary);
+      --fa-secondary-color: var(--icon-secondary);
+      --fa-secondary-opacity: 0.4;
+      filter: drop-shadow(0 4px 12px rgba(102, 126, 234, 0.3));
+      transition: all 0.3s ease;
+    }
+
+    .feature-card:hover .feature-icon {
+      transform: scale(1.1) rotateY(15deg);
+      --fa-secondary-opacity: 0.6;
+    }
+
+    /* Navigation Icons */
+    .nav-link i {
+      margin-right: 0.5rem;
+      transition: all 0.2s ease;
+      --fa-primary-color: #4a5568;
+    }
+
+    .nav-link:hover i {
+      --fa-primary-color: var(--icon-primary);
+      transform: translateY(-1px);
+    }
+
+    /* Glass Card Icons */
+    .glass-card-title i {
+      margin-right: 0.5rem;
+      --fa-primary-color: var(--icon-primary);
+      --fa-secondary-color: var(--icon-secondary);
+    }
+
+    /* Floating Icons with Animation */
+    .float-element i {
+      --fa-primary-color: rgba(255, 255, 255, 0.8);
+      --fa-secondary-color: rgba(255, 255, 255, 0.4);
+      transition: all 0.3s ease;
+    }
+
+    .float-element:hover i {
+      --fa-primary-color: var(--icon-accent);
+      transform: scale(1.2);
+    }
+
+    /* Badge Icon Animation */
+    .badge-icon {
+      margin-right: 0.5rem;
+      --fa-primary-color: rgba(255, 255, 255, 0.9);
+      --fa-secondary-color: rgba(255, 212, 155, 0.8);
+      animation: sparkle 2s infinite;
+    }
+
+    @keyframes sparkle {
+      0%, 100% { --fa-secondary-opacity: 0.3; }
+      50% { --fa-secondary-opacity: 0.8; }
+    }
+
+    /* Hero Badge */
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      padding: 0.5rem 1rem;
+      border-radius: 2rem;
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: white;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-badge .badge-glow {
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+      animation: glow 2s infinite;
+    }
+
+    @keyframes glow {
+      0% { left: -100%; }
+      50% { left: 100%; }
+      100% { left: 100%; }
+    }
+    </style>
+
+    <!-- Meta tags -->
+    <meta name="description" content="Build scalable enterprise websites with our component-based system powered by Tailwind Plus and vanilla JavaScript">
+
+    <!-- Component System -->
+    <script src="../components/ComponentLibrary.js" type="module"></script>
+</head>
+<body class="font-['Inter'] antialiased bg-gray-50">
+    <!-- Skip to main content -->
+    <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 bg-blue-600 text-white px-4 py-2 rounded-lg z-50">
+        Skip to main content
+    </a>
+
+    <!-- Navigation -->
+    <div data-component="navigation" data-config='{
+        "variant": "transparent",
+        "items": [
+            {"label": "Home", "href": "#home"},
+            {"label": "Features", "href": "#features"},
+            {"label": "Components", "href": "#components"},
+            {"label": "Pricing", "href": "#pricing"},
+            {"label": "Contact", "href": "#contact"}
+        ],
+        "showCTA": true
+    }'></div>
+
+    <!-- Hero Section -->
+    <section id="home" class="relative">
+        <div data-component="hero-section" data-config='{
+            "title": "Build Enterprise Websites with Components",
+            "subtitle": "Create scalable, maintainable websites using our component-based architecture. Powered by Tailwind Plus and vanilla JavaScript.",
+            "ctaText": "Get Started",
+            "ctaLink": "#contact",
+            "variant": "centered",
+            "badge": "New Feature Available"
+        }'></div>
+
+        <!-- Hero Badge -->
+        <div class="hero-badge">
+            <i class="fad fa-sparkles badge-icon"></i>
+            <span class="badge-text">New Feature Available</span>
+            <div class="badge-glow"></div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
+                    Why Choose Our Component System?
+                </h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    Our enterprise-grade component library provides everything you need to build modern, scalable websites.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Feature Cards -->
+                <div data-component="card" data-config='{
+                    "title": "Component-Based",
+                    "content": "Build websites using reusable components. Edit once, update everywhere. Perfect for enterprise teams.",
+                    "variant": "default",
+                    "tags": ["Reusable", "Scalable"],
+                    "icon": "fa-puzzle-piece",
+                    "titleIcon": "fa-cubes"
+                }'></div>
+
+                <div data-component="card" data-config='{
+                    "title": "Tailwind Plus Integration",
+                    "content": "Access 500+ premium components and templates with our Tailwind Plus integration.",
+                    "variant": "featured",
+                    "tags": ["Premium", "Templates"],
+                    "icon": "fa-hexagon-vertical-nft",
+                    "titleIcon": "fa-palette"
+                }'></div>
+
+                <div data-component="card" data-config='{
+                    "title": "Webflow Compatible",
+                    "content": "Seamlessly integrate with Webflow for visual design and content management workflows.",
+                    "variant": "default",
+                    "tags": ["Webflow", "CMS"],
+                    "icon": "fa-window-restore",
+                    "titleIcon": "fa-link"
+                }'></div>
+
+                <div data-component="card" data-config='{
+                    "title": "Developer Friendly",
+                    "content": "Clean, vanilla JavaScript architecture. No complex frameworks, just pure web standards.",
+                    "variant": "default",
+                    "tags": ["JavaScript", "Vanilla"],
+                    "icon": "fa-code",
+                    "titleIcon": "fa-terminal"
+                }'></div>
+
+                <div data-component="card" data-config='{
+                    "title": "Enterprise Ready",
+                    "content": "Built for large-scale applications with performance, security, and maintainability in mind.",
+                    "variant": "featured",
+                    "tags": ["Enterprise", "Performance"],
+                    "icon": "fa-building",
+                    "titleIcon": "fa-shield-check"
+                }'></div>
+
+                <div data-component="card" data-config='{
+                    "title": "Version Control",
+                    "content": "Full Git integration for component versioning and team collaboration.",
+                    "variant": "default",
+                    "tags": ["Git", "Versioning"],
+                    "icon": "fa-code-branch",
+                    "titleIcon": "fa-git-alt"
+                }'></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Components Showcase -->
+    <section id="components" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
+                    Component Showcase
+                </h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    Explore our comprehensive component library built for enterprise applications.
+                </p>
+            </div>
+
+            <!-- Component Examples -->
+            <div class="space-y-16">
+                <!-- Navigation Examples -->
+                <div>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-8">Navigation Components</h3>
+                    <div class="bg-white rounded-xl shadow-lg p-8">
+                        <div data-component="navigation" data-config='{
+                            "variant": "default",
+                            "items": [
+                                {"label": "Dashboard", "href": "#"},
+                                {"label": "Projects", "href": "#"},
+                                {"label": "Team", "href": "#"},
+                                {"label": "Settings", "href": "#"}
+                            ],
+                            "showCTA": true
+                        }'></div>
+                    </div>
+                </div>
+
+                <!-- Card Grid Example -->
+                <div>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-8">Content Cards</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        <div data-component="card" data-config='{
+                            "title": "Blog Post",
+                            "content": "Learn how to implement component-based architecture in your next project.",
+                            "tags": ["Tutorial", "JavaScript"],
+                            "link": "#"
+                        }'></div>
+
+                        <div data-component="card" data-config='{
+                            "title": "Case Study",
+                            "content": "How we helped a Fortune 500 company migrate to component-based development.",
+                            "tags": ["Case Study", "Enterprise"],
+                            "link": "#"
+                        }'></div>
+
+                        <div data-component="card" data-config='{
+                            "title": "Documentation",
+                            "content": "Complete API documentation and usage examples for all components.",
+                            "tags": ["Docs", "API"],
+                            "link": "#"
+                        }'></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-20 bg-blue-600">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-3xl lg:text-4xl font-bold text-white mb-4">
+                Ready to Get Started?
+            </h2>
+            <p class="text-xl text-blue-100 mb-8">
+                Join thousands of developers building better websites with our component system.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="#contact" class="bg-white text-blue-600 px-8 py-4 rounded-lg text-lg font-semibold hover:bg-gray-100 transition-colors">
+                    Start Building
+                </a>
+                <a href="#docs" class="border-2 border-white text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-white hover:text-blue-600 transition-colors">
+                    View Documentation
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div class="col-span-2">
+                    <h3 class="text-xl font-bold mb-4">Enterprise Components</h3>
+                    <p class="text-gray-400 mb-4">
+                        Building the future of enterprise web development with component-based architecture.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">Twitter</a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">LinkedIn</a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">GitHub</a>
+                    </div>
+                </div>
+
+                <div>
+                    <h4 class="font-semibold mb-4">Components</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#" class="hover:text-white transition-colors">Navigation</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Cards</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Forms</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Modals</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-semibold mb-4">Resources</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#" class="hover:text-white transition-colors">Documentation</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Examples</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Blog</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Support</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2024 Enterprise Components. All rights reserved.</p>
+                <p class="mt-2 text-sm">
+                    Built with <a href="#" class="text-blue-400 hover:text-blue-300">Tailwind Plus</a> and vanilla JavaScript.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        // Add any additional initialization code here
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('Homepage loaded successfully');
+
+            // Enable debug mode in development
+            if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
+                if (window.ComponentSystem) {
+                    window.ComponentSystem.enableDebug();
+                }
+            }
+        });
+    </script>
+</body>
+</html>
