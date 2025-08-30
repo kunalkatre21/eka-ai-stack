@@ -403,12 +403,13 @@ class WebflowComponentManager {
 
 
 ### **Webflow CMS Integration**
-
+{% raw %}
 ```html
 <!-- In Collection Template -->
 <div data-component="productCard" 
-     data-config='{"title":"{{wf {&quot;path&quot;:&quot;name&quot;} }}", "price":"{{wf {&quot;path&quot;:&quot;price&quot;} }}"}'></div>
+     data-config='{"title":"{{wf {"path":"name"} }}", "price":"{{wf {"path":"price"} }}"}'></div>
 ```
+{% endraw %}
 
 
 ## Best Practices for Your Enterprise Setup
