@@ -96,6 +96,7 @@ debugComponents();
 ```
 
 ### Webflow Integration
+{% raw %}
 ```html
 <!-- In Webflow HTML Embed -->
 <div data-component="hero-section" data-config='{
@@ -103,6 +104,7 @@ debugComponents();
     "subtitle": "{{wf {"path":"hero_subtitle"}}}"
 }'></div>
 ```
+ {% endraw %}
 
 ## 🛠️ Build Commands
 
