@@ -99,8 +99,8 @@ debugComponents();
 ```html
 <!-- In Webflow HTML Embed -->
 <div data-component="hero-section" data-config='{
-    "title": "{{wf {&quot;path&quot;:&quot;hero_title&quot;} }}",
-    "subtitle": "{{wf {&quot;path&quot;:&quot;hero_subtitle&quot;} }}"
+    "title": "{{wf {"path":"hero_title"} }}",
+    "subtitle": "{{wf {"path";:"hero_subtitle";} }}"
 }'></div>
 ```
 
